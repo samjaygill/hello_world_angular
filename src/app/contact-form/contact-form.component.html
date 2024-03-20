@@ -1,27 +1,33 @@
-<form>
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-
-    <input
-      required
-      minlength="3"
-      maxlength="10"
-      pattern="banana"
-      ngModel
-      #firstName="ngModel"
-      name="firstName"
-      (change)="log(firstName)"
-      id="firstName"
-      type="text"
-      class="form-control"
-    />
-    <div
-      class="alert alert-danger"
-      *ngIf="firstName.touched && !firstName.valid"
-    >
-    <div *ngIf="firstName.errors?.['required']">First name is required</div>
-    <div *ngIf="firstName.errors?.['minlength']">First name must be at least 3 characters</div>
-    <div *ngIf="firstName.errors?.['pattern']">First name does not match pattern</div>
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        required
+        minlength="3"
+        maxlength="10"
+        pattern="banana"
+        ngModel
+        #firstName="ngModel"
+        name="firstName"
+        (change)="log(firstName)"
+        id="firstName"
+        type="text"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="firstName.touched && !firstName.valid"
+      >
+        <div *ngIf="firstName.errors?.['required']">First name is required</div>
+        <div *ngIf="firstName.errors?.['minlength']">
+          First name must be at least 3 characters
+        </div>
+        <div *ngIf="firstName.errors?.['pattern']">
+          First name does not match pattern
+        </div>
+        <div *ngIf="!contact.valid">Some error message</div>
+      </div>
     </div>
   </div>
 
