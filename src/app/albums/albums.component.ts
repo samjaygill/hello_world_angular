@@ -80,7 +80,7 @@ export class AlbumsComponent {
   onAdd() {
     this.albums.push({
       id: 4,
-      title: 'Shoot for the moon',
+      title: 'Aim for the stars, Shoot for the moon',
       artist: 'Pop Smoke',
       owned: false,
     });
