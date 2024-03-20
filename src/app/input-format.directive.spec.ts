@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { InputFormatDirective } from './input-format.directive';
 
 describe('InputFormatDirective', () => {
