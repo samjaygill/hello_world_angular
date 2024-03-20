@@ -48,7 +48,7 @@
 //   }
 // }
 
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AlbumComponent } from '../album/album.component';
 
@@ -58,22 +58,31 @@ import { AlbumComponent } from '../album/album.component';
   imports: [AlbumComponent, CommonModule],
   template: `
     <h2>{{ title }}</h2>
-    <div *ngFor="let album of albums">
-      <app-album [details]="album" (ownedEvent)="updateOwned($event)" />
+    <button (click)="onAdd()">Add</button>
+    <div *ngFor="let album of albums; index as i">
+      {{ i }} <app-album [details]="album" (ownedEvent)="updateOwned($event)" />
     </div>
   `,
 })
 export class AlbumsComponent {
-  title = "List Of Albums"
+  title = 'List Of Albums';
   albums = [
-      {id: 1, title: "Take Care", artist: "Drake", owned:true},
-      {id: 2, title: "11:11", artist: "Chris Brown", owned:true},
-      {id: 3,title: "Good Girl Gone Bad", artist: "Rihanna", owned:true},
-      {id: 4, title: "Lemonade", artist: "Beyonce", owned:false},
+    { id: 0, title: 'Lemonade', artist: 'Beyonce', owned: false },
+    { id: 1, title: 'Take Care', artist: 'Drake', owned: true },
+    { id: 2, title: '11:11', artist: 'Chris Brown', owned: true },
+    { id: 3, title: 'Good Girl Gone Bad', artist: 'Rihanna', owned: true },
+  ];
 
-  ]
+  updateOwned(id: number) {
+    this.albums[id].owned = !this.albums[id].owned;
+  }
 
-  updateOwned(id:number){
-    this.albums[id-1].owned = !this.albums[id-1].owned
+  onAdd() {
+    this.albums.push({
+      id: 4,
+      title: 'Shoot for the moon',
+      artist: 'Pop Smoke',
+      owned: false,
+    });
   }
 }
