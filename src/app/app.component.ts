@@ -5,11 +5,12 @@ import { AlbumsComponent } from './albums/albums.component';
 import { MapComponent } from './map/map.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AlbumComponent, AlbumsComponent, MapComponent, InputFormatDirective, ContactFormComponent],
+  imports: [RouterOutlet, AlbumComponent, AlbumsComponent, MapComponent, InputFormatDirective, ContactFormComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
