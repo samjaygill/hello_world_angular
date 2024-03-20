@@ -4,5 +4,18 @@
 <h3>Artist</h3>
 <h1>{{ details.artist }}</h1>
 
+<!-- <div *ngIf="details.owned">
 <h3>Owned</h3>
 <h1>{{details.owned}}</h1>
+</div> -->
+
+<div *ngIf="details.owned == true; then owned else notOwned"></div>
+
+<ng-template #owned>
+    <h3>Owned</h3>
+</ng-template>
+
+<ng-template #notOwned>
+    <h3>Not Owned</h3>
+</ng-template>
+

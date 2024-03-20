@@ -1,9 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-album',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './album.component.html',
   styleUrl: './album.component.css',
 })
